@@ -8,9 +8,12 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.martinezdputra.nutrilog.core.navigation.Route
 import com.martinezdputra.nutrilog.navigation.navigate
+import com.martinezdputra.nutrilog.onboarding_presentation.gender.GenderScreen
 import com.martinezdputra.nutrilog.onboarding_presentation.welcome.WelcomeScreen
 import com.martinezdputra.nutrilog.ui.theme.NutrilogTheme
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,7 +31,7 @@ class MainActivity : ComponentActivity() {
 
                     }
                     composable(Route.GENDER) {
-
+                        GenderScreen(onNavigate = navController::navigate)
                     }
                     composable(Route.HEIGHT) {
 
