@@ -1,10 +1,7 @@
 package com.martinezdputra.nutrilog.core.data.preferences
 
 import android.content.SharedPreferences
-import com.martinezdputra.nutrilog.core.domain.model.ActivityLevel
-import com.martinezdputra.nutrilog.core.domain.model.Gender
-import com.martinezdputra.nutrilog.core.domain.model.GoalType
-import com.martinezdputra.nutrilog.core.domain.model.UserInfo
+import com.martinezdputra.nutrilog.core.domain.model.*
 import com.martinezdputra.nutrilog.core.domain.preferences.Preferences
 
 class DefaultPreferences(
