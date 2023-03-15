@@ -18,6 +18,7 @@ import com.martinezdputra.nutrilog.onboarding_presentation.age.AgeScreen
 import com.martinezdputra.nutrilog.onboarding_presentation.gender.GenderScreen
 import com.martinezdputra.nutrilog.onboarding_presentation.goal.GoalScreen
 import com.martinezdputra.nutrilog.onboarding_presentation.height.HeightScreen
+import com.martinezdputra.nutrilog.onboarding_presentation.nutrient_goal.NutrientGoalScreen
 import com.martinezdputra.nutrilog.onboarding_presentation.weight.WeightScreen
 import com.martinezdputra.nutrilog.onboarding_presentation.welcome.WelcomeScreen
 import com.martinezdputra.nutrilog.ui.theme.NutrilogTheme
@@ -65,7 +66,10 @@ class MainActivity : ComponentActivity() {
                             )
                         }
                         composable(Route.NUTRIENT_GOAL) {
-
+                            NutrientGoalScreen(
+                                scaffoldState = scaffoldState,
+                                onNavigate = navController::navigate
+                            )
                         }
                         composable(Route.ACTIVITY) {
                             ActivityLevelScreen(onNavigate = navController::navigate)
