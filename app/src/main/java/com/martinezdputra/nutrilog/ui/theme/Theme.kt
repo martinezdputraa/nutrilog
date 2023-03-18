@@ -8,8 +8,7 @@ import androidx.compose.material.darkColors
 import androidx.compose.material.lightColors
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.graphics.Color
-import com.martinezdputra.nutrilog.core_ui.Dimensions
-import com.martinezdputra.nutrilog.core_ui.LocalSpacing
+import com.martinezdputra.nutrilog.core_ui.*
 
 private val DarkColorPalette = darkColors(
     primary = BrightGreen,

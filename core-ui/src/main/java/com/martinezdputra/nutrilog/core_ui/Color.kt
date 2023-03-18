@@ -1,4 +1,4 @@
-package com.martinezdputra.nutrilog.ui.theme
+package com.martinezdputra.nutrilog.core_ui
 
 import androidx.compose.ui.graphics.Color
 

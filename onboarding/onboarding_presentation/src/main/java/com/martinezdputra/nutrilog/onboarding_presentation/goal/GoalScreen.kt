@@ -6,6 +6,7 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -49,11 +50,11 @@ fun GoalScreen(
                 style = MaterialTheme.typography.h3
             )
             Spacer(modifier = Modifier.height(spacing.spaceMedium))
-            val selectedGoalType = viewModel.selectedGoal.collectAsState()
+            val selectedGoalType by viewModel.selectedGoal.collectAsState()
             Row {
                 SelectableButton(
                     text = stringResource(id = R.string.lose),
-                    isSelected = selectedGoalType.value is GoalType.LoseWeight,
+                    isSelected = selectedGoalType is GoalType.LoseWeight,
                     color = MaterialTheme.colors.primaryVariant,
                     selectedTextColor = Color.White,
                     onClick = {
@@ -66,7 +67,7 @@ fun GoalScreen(
                 Spacer(modifier = Modifier.width(spacing.spaceMedium))
                 SelectableButton(
                     text = stringResource(id = R.string.keep),
-                    isSelected = selectedGoalType.value is GoalType.KeepWeight,
+                    isSelected = selectedGoalType is GoalType.KeepWeight,
                     color = MaterialTheme.colors.primaryVariant,
                     selectedTextColor = Color.White,
                     onClick = {
@@ -79,7 +80,7 @@ fun GoalScreen(
                 Spacer(modifier = Modifier.width(spacing.spaceMedium))
                 SelectableButton(
                     text = stringResource(id = R.string.gain),
-                    isSelected = selectedGoalType.value is GoalType.GainWeight,
+                    isSelected = selectedGoalType is GoalType.GainWeight,
                     color = MaterialTheme.colors.primaryVariant,
                     selectedTextColor = Color.White,
                     onClick = {
