@@ -10,11 +10,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.hilt.navigation.compose.hiltViewModel
-import com.martinezdputra.nutrilog.core.util.UiEvent
 import com.martinezdputra.nutrilog.core_ui.LocalSpacing
 import com.martinezdputra.nutrilog.core.R
 import androidx.compose.foundation.layout.*
-import androidx.compose.runtime.LaunchedEffect
 import com.martinezdputra.nutrilog.tracker_presentation.components.AddButton
 import com.martinezdputra.nutrilog.tracker_presentation.tracker_overview.components.*
 
@@ -53,7 +51,10 @@ fun TrackerOverviewScreen(
                             .fillMaxWidth()
                             .padding(horizontal = spacing.spaceSmall)
                     ) {
-                        state.trackedFoods.forEach { food ->
+                        val foodsByMealType = state.trackedFoods.filter {
+                            it.mealType == meal.mealType
+                        }
+                        foodsByMealType.forEach { food ->
                             TrackedFoodItem(
                                 trackedFood = food,
                                 onDeleteClick = {
