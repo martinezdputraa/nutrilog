@@ -4,8 +4,6 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.martinezdputra.nutrilog.core.R
 import com.martinezdputra.nutrilog.core.domain.preferences.Preferences
-import com.martinezdputra.nutrilog.core.domain.use_case.FilterOutDigits
-import com.martinezdputra.nutrilog.core.navigation.Route
 import com.martinezdputra.nutrilog.core.util.UiEvent
 import com.martinezdputra.nutrilog.core.util.UiText
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -43,7 +41,7 @@ class WeightViewModel @Inject constructor(
                 return@launch
             }
             preferences.saveWeight(weightNumber)
-            _uiEvent.send(UiEvent.Navigate(Route.ACTIVITY))
+            _uiEvent.send(UiEvent.Success)
         }
     }
 }

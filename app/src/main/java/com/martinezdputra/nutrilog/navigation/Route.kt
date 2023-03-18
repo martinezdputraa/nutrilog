@@ -1,4 +1,4 @@
-package com.martinezdputra.nutrilog.core.navigation
+package com.martinezdputra.nutrilog.navigation
 
 object Route {
     const val WELCOME = "welcome"

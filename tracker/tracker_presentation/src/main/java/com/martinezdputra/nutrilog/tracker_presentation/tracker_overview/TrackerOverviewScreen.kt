@@ -20,20 +20,12 @@ import com.martinezdputra.nutrilog.tracker_presentation.tracker_overview.compone
 
 @Composable
 fun TrackerOverviewScreen(
-    onNavigate: (UiEvent.Navigate) -> Unit,
+    onNavigateToSearch: (String, Int, Int, Int) -> Unit,
     viewModel: TrackerOverviewViewModel = hiltViewModel(),
 ) {
     val spacing = LocalSpacing.current
     val state by viewModel.state.collectAsState()
     val context = LocalContext.current
-    LaunchedEffect(key1 = true) {
-        viewModel.uiEvent.collect { event ->
-            when(event) {
-                is UiEvent.Navigate -> onNavigate(event)
-                else -> Unit
-            }
-        }
-    }
     LazyColumn(
         modifier = Modifier
             .fillMaxSize()
@@ -77,8 +69,11 @@ fun TrackerOverviewScreen(
                             ),
                             modifier = Modifier.fillMaxWidth(),
                             onClick = {
-                                viewModel.onEvent(
-                                    TrackerOverviewEvent.OnAddFoodClick(meal)
+                                onNavigateToSearch(
+                                    meal.name.asString(context),
+                                    state.date.dayOfMonth,
+                                    state.date.monthValue,
+                                    state.date.year,
                                 )
                             }
                         )

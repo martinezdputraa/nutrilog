@@ -5,7 +5,6 @@ import androidx.lifecycle.viewModelScope
 import com.martinezdputra.nutrilog.core.R
 import com.martinezdputra.nutrilog.core.domain.preferences.Preferences
 import com.martinezdputra.nutrilog.core.domain.use_case.FilterOutDigits
-import com.martinezdputra.nutrilog.core.navigation.Route
 import com.martinezdputra.nutrilog.core.util.UiEvent
 import com.martinezdputra.nutrilog.core.util.UiText
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -44,7 +43,7 @@ class HeightViewModel @Inject constructor(
                 return@launch
             }
             preferences.saveHeight(heightNumber)
-            _uiEvent.send(UiEvent.Navigate(Route.WEIGHT))
+            _uiEvent.send(UiEvent.Success)
         }
     }
 }
