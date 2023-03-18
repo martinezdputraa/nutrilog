@@ -14,6 +14,8 @@ import com.martinezdputra.nutrilog.core.util.UiEvent
 import com.martinezdputra.nutrilog.core_ui.LocalSpacing
 import com.martinezdputra.nutrilog.core.R
 import androidx.compose.foundation.layout.*
+import androidx.compose.runtime.LaunchedEffect
+import com.martinezdputra.nutrilog.tracker_presentation.components.AddButton
 import com.martinezdputra.nutrilog.tracker_presentation.tracker_overview.components.*
 
 @Composable
@@ -24,6 +26,14 @@ fun TrackerOverviewScreen(
     val spacing = LocalSpacing.current
     val state by viewModel.state.collectAsState()
     val context = LocalContext.current
+    LaunchedEffect(key1 = true) {
+        viewModel.uiEvent.collect { event ->
+            when(event) {
+                is UiEvent.Navigate -> onNavigate(event)
+                else -> Unit
+            }
+        }
+    }
     LazyColumn(
         modifier = Modifier
             .fillMaxSize()

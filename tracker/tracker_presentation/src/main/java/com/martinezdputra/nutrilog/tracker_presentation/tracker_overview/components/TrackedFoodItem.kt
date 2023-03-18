@@ -1,6 +1,7 @@
 package com.martinezdputra.nutrilog.tracker_presentation.tracker_overview.components
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -34,12 +35,13 @@ fun TrackedFoodItem(
     val spacing = LocalSpacing.current
     Row(
         modifier = modifier
-            .clip(RoundedCornerShape(12.dp))
+            .clip(RoundedCornerShape(5.dp))
             .padding(spacing.spaceExtraSmall)
             .shadow(
-                elevation = 4.dp,
-                shape = RoundedCornerShape(12.dp)
+                elevation = 1.dp,
+                shape = RoundedCornerShape(5.dp)
             )
+            .background(MaterialTheme.colors.surface)
             .padding(end = spacing.spaceMedium)
             .height(100.dp),
         horizontalArrangement = Arrangement.SpaceBetween,
