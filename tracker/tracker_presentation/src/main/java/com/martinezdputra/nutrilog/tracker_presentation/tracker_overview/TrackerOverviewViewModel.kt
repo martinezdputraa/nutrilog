@@ -3,7 +3,6 @@ package com.martinezdputra.nutrilog.tracker_presentation.tracker_overview
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.martinezdputra.nutrilog.core.domain.preferences.Preferences
-import com.martinezdputra.nutrilog.core.navigation.Route
 import com.martinezdputra.nutrilog.core.util.UiEvent
 import com.martinezdputra.nutrilog.tracker_domain.use_case.TrackerUseCases
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -61,19 +60,7 @@ class TrackerOverviewViewModel @Inject constructor(
                     refreshFoods()
                 }
             }
-            is TrackerOverviewEvent.OnAddFoodClick -> {
-                viewModelScope.launch {
-                    _uiEvent.send(
-                        UiEvent.Navigate(
-                            route = Route.SEARCH
-                                    + "/${event.meal.mealType.name}"
-                                    + "/${state.value.date.dayOfMonth}"
-                                    + "/${state.value.date.monthValue}"
-                                    + "/${state.value.date.year}"
-                        )
-                    )
-                }
-            }
+            else -> Unit
         }
     }
 

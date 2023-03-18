@@ -4,7 +4,6 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.martinezdputra.nutrilog.core.domain.preferences.Preferences
 import com.martinezdputra.nutrilog.core.domain.use_case.FilterOutDigits
-import com.martinezdputra.nutrilog.core.navigation.Route
 import com.martinezdputra.nutrilog.core.util.UiEvent
 import com.martinezdputra.nutrilog.onboarding_domain.use_case.ValidateNutrients
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -58,7 +57,7 @@ class NutrientGoalViewModel @Inject constructor(
 
                         viewModelScope.launch {
                             _uiEvent.send(
-                                UiEvent.Navigate(Route.TRACKER_OVERVIEW)
+                                UiEvent.Success
                             )
                         }
                     }
