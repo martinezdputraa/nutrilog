@@ -6,6 +6,7 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -48,11 +49,11 @@ fun ActivityLevelScreen(
                 style = MaterialTheme.typography.h3
             )
             Spacer(modifier = Modifier.height(spacing.spaceMedium))
-            val selectedActivityLevel = viewModel.selectedActivityLevel.collectAsState()
+            val selectedActivityLevel by viewModel.selectedActivityLevel.collectAsState()
             Row {
                 SelectableButton(
                     text = stringResource(id = R.string.low),
-                    isSelected = selectedActivityLevel.value is ActivityLevel.Low,
+                    isSelected = selectedActivityLevel is ActivityLevel.Low,
                     color = MaterialTheme.colors.primaryVariant,
                     selectedTextColor = Color.White,
                     onClick = {
@@ -65,7 +66,7 @@ fun ActivityLevelScreen(
                 Spacer(modifier = Modifier.width(spacing.spaceMedium))
                 SelectableButton(
                     text = stringResource(id = R.string.medium),
-                    isSelected = selectedActivityLevel.value is ActivityLevel.Medium,
+                    isSelected = selectedActivityLevel is ActivityLevel.Medium,
                     color = MaterialTheme.colors.primaryVariant,
                     selectedTextColor = Color.White,
                     onClick = {
@@ -78,7 +79,7 @@ fun ActivityLevelScreen(
                 Spacer(modifier = Modifier.width(spacing.spaceMedium))
                 SelectableButton(
                     text = stringResource(id = R.string.high),
-                    isSelected = selectedActivityLevel.value is ActivityLevel.High,
+                    isSelected = selectedActivityLevel is ActivityLevel.High,
                     color = MaterialTheme.colors.primaryVariant,
                     selectedTextColor = Color.White,
                     onClick = {
