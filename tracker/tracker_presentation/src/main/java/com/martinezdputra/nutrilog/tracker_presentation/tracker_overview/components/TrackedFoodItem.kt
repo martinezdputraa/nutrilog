@@ -63,8 +63,8 @@ fun TrackedFoodItem(
                 .aspectRatio(1f)
                 .clip(
                     RoundedCornerShape(
-                        topStart = 12.dp,
-                        bottomStart = 12.dp,
+                        topStart = 5.dp,
+                        bottomStart = 5.dp,
                     )
                 )
         )
