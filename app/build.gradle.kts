@@ -6,8 +6,15 @@ plugins {
 }
 
 android {
-    namespace = "com.martinezdputra.nutrilog"
     compileSdk = ProjectConfig.compileSdk
+
+    testOptions {
+        packagingOptions {
+            jniLibs {
+                useLegacyPackaging = true
+            }
+        }
+    }
 
     defaultConfig {
         applicationId = ProjectConfig.appId
@@ -16,7 +23,7 @@ android {
         versionCode = ProjectConfig.versionCode
         versionName = ProjectConfig.versionName
 
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner = "com.martinezdputra.nutrilog.HiltTestRunner"
         vectorDrawables {
             useSupportLibrary = true
         }
@@ -104,6 +111,7 @@ dependencies {
     androidTestImplementation(Testing.mockkAndroid)
     androidTestImplementation(Testing.mockWebServer)
     androidTestImplementation(Testing.hiltTesting)
+    androidTestImplementation(Testing.coreTest)
     kaptAndroidTest(DaggerHilt.hiltCompiler)
     androidTestImplementation(Testing.testRunner)
 }
